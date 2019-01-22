@@ -41,6 +41,7 @@ double method2(Bid arr[],int n)
 
 int main()
 {
+    //Input format - n followed by 2n numbers.
     int n;
     cin>>n;
     Bid B[n*2];
