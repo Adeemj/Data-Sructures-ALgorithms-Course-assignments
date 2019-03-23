@@ -1,0 +1,49 @@
+You are to write a program which accepts mathematical expressions and
+prints their derivative with respect to x.  The mathematical
+expressions are to be of the kind we considered in class, and that
+program will be given to you to modify.  There is no need to draw
+anything, so you can comment out that part of the code.
+
+The program you write should handle a slightly wider class of
+operations.  First, it should allow all arithmetic operators.
+Second, it should allow cosine and sine functions.  These will be
+denoted by the unary operators c and s.  The expression sine(f) and
+cos(f) will have to be typed in a strange way, as (fs) and (fc).  This
+strange format will help you in reading: as before you will first read
+the operand, then the operator.  But if the operator is 'c' or 's' you
+skip the second operand reading step.
+
+Here are some examples of inputs and expected outputs.
+
+Input         Output
+(1+(xs))      (0+((xc)*1))
+(x*x)         ((1*x)+(x*1))
+((x*x)c)      (0-(((x*x)s)*((1*x)+(x*1))))
+
+The input expression in the first example is 1 + sin(x).  The
+expression in the second is x^2, and in the third is cosin(x^2).  The
+final expression can be substantially simplified, but you are not
+expected to do this.
+
+You are expected to write the following member functions.
+
+string Node::print() : this should return a string containing the
+       		       expression in the subtree of the node on which
+       		       this is called.
+
+Node* Node::deriv() : this should return a pointer the root of the
+      		      expression tree representing the derivative of
+      		      the expression in the subtree of the node on
+      		      which this is called.
+
+In addition to writing the above functions, you will have to
+write/modify the constructors so that the richer class of expressions
+can be read.
+
+You should use the following main program.
+
+int main(){
+  Node z(cin);
+  cout << z.print() << endl;
+  cout << z.deriv()->print() << endl;
+}
