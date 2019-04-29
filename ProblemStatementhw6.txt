@@ -1,0 +1,67 @@
+due Wednesday, April 10, 11:55pm
+
+In this homework you are to write a program which colours the vertices
+of a graph using the minimum degree heuristic.
+
+The basic graph colouring problem is as follows.  You are given as
+input an undirected graph.  To each vertex u, you must assign a colour
+C[u], which must be a positive integer s.t. C[u] != C[v] if (u,v) is
+an edge in the graph.  In addition, it is desirable to minimize the
+largest colour, i.e. largest value of C[u] over all u.  If a graph can
+be coloured with max colour <= k, then it is said to be k colourable.
+Minimizing this maximum colour value is a well known difficult
+problem, and most computer scientists believe that no algorithm can
+colour a graph in the minimum number of colours in time polynomial
+in n.
+
+So people use a heuristic, i.e. a strategy which hopefully will use
+only a small number of colours, though there is no proof of this.  One
+such heuristic is the "minimum degree heuristic".  The degree of a
+vertex is the number of edges incident on that vertex.  The heuristic
+starts with all vertices uncoloured, and repeats the following step:
+
+       Pick any (but see below) vertex having the fewest uncoloured
+       neighbours.  Assign it the smallest possible colour different
+       from the colours of its neighbours coloured till then.
+
+The heuristic asks you to pick any vertex having the fewest uncoloured
+neighbours.  However, for the sake of getting a unique answer, you
+are required to pick the smallest numbered among these.
+
+The input to your program is the graph, given as follows.
+
+n m
+u1 v1
+...
+um vm
+
+Here n, m are the numbers of vertices and edges.  ui, vi are the
+endpoints of the ith edge.  The vertices are numbered 0 through n-1,
+so 0 <= ui, vi <= n-1.  The output should be the n colours C[u], printed
+out in order, i.e
+
+C[0] C[1] ... C[n-1]
+
+Here is an example input
+
+4 4
+0 1
+1 2
+2 0
+2 3
+
+The output should be
+1 2 3 1
+
+The algorthm should run in time O(nlog n).  You are expected to use
+appropriate data structures to determine the vertex of the smallest
+degree and the smallest colour to use.  It is fine if you use a
+balanced tree (i.e. a set or a map) where a heap would have sufficed.
+Or it is fine if you look up the on-line documentation and use a heap.
+
+It will be considered plagiarism if you search the net for code for
+solving the problem.  However, as always it is fine to discuss the
+algorithm with your friends, but you may not exchange code.  If you
+have problems in coding please send e-mail to me.
+
+---
